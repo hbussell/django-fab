@@ -12,7 +12,8 @@ You can also move configuration out of the fabfile.py into ini style configurati
 Installation
 ------------
 
-::    
+    ::    
+
     sudo easy_install django-fab
 
 git example fabfile.py ::
