@@ -8,6 +8,12 @@ The idea is to allow you to use a fabfile.py that has just the unique things for
 
 You can also move configuration out of the fabfile.py into ini style configuration files.
 
+------------
+Installation
+------------
+ ::
+    sudo easy_install django-fab
+
 git example fabfile.py ::
 
     from __future__ import with_statement
