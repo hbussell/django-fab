@@ -8,13 +8,11 @@ The idea is to allow you to use a fabfile.py that has just the unique things for
 
 You can also move configuration out of the fabfile.py into ini style configuration files.
 
-------------
-Installation
-------------
 
-    ::    
+Installation ::
 
     sudo easy_install django-fab
+    sudo easy_install http://git.fabfile.org/cgit.cgi/fabric/snapshot/fabric-0.9b1.tar.gz
 
 git example fabfile.py ::
 
