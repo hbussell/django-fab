@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
-
+import os
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(name='django-fab',
 version='1.0',
-description='Common fabric tools for django projects',
+description='Common methods to help create fabric deplopment scripts for django',
 long_description=read('README.rst'),
 author='Harley Bussell',
 author_email='modmac@gmail.com',
@@ -22,7 +22,7 @@ classifiers=[
 
 ],
 keywords='django fabric deployment',
-zip_safe=False
+zip_safe=False,
 license='GPL',
 install_requires=[
 'setuptools',

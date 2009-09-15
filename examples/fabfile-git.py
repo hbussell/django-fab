@@ -12,18 +12,18 @@ env.capture_default = False
 @user_settings()
 def prod():
     "Production settings"
-    env.hosts = ['mail']
+    env.hosts = ['server1']
     env.path = '%(prod_path)s'
-    env.svnurl = '%(svnurl)s'
+    env.giturl = '%(giturl)s'
     env.site_user = 'owner'
     env.site_group = 'group'
 
 @user_settings()
 def dev():
     "Development settings"
-    env.hosts = ['mail']
-    env.path = '%(dev_path)s' #% {'dev_path': '/dev/path/'}
-    env.svnurl = '%(svnurl)s'
+    env.hosts = ['server1']
+    env.path = '%(dev_path)s'
+    env.giturl = '%(giturl)s'
     env.site_user = 'owner'
     env.site_group = 'group'
 
@@ -32,7 +32,7 @@ def dev():
 def localhost():
     "Local settings"
     env.path = '%(dev_path)s'
-    env.svnurl = '%(svnurl)s'
+    env.giturl = '%(giturl)s'
 
 def deploy():
     "Push local changes and update checkout on the remote host"
