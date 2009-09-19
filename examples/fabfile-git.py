@@ -1,12 +1,18 @@
 from __future__ import with_statement
+import sys
 from fabric.api import *
 from fabric.context_managers import *
 from django.conf import settings
 from djangofab.vcs.git import update_remote, update_local, push, commit, add
 from djangofab.decorator import user_settings
-from djangofab.util import local as local
+from djangofab.util import local as local, _apply_settings
 from djangofab.django import get_remote_db, put_local_db, change_ownership, touch_wsgi
 env.capture_default = False
+
+
+# apply the settings from fab.cfg default section
+# sets the DJANGO_SETTINGS which allows access to settings values
+_apply_settings()
 
 #use the default section of fab.cfg
 @user_settings()
@@ -41,3 +47,7 @@ def deploy():
     #remote_export() 
     change_ownership()
     touch_wsgi()
+
+def test():    
+    print "website using database %s " % (settings.DATABASE_NAME,)
+    

@@ -5,8 +5,8 @@ import os
 import sys
 #import django
 from djangofab.vcs.git import do_checkout, do_push as push, do_pull as pull
-from djangofab.decorator import *
-from djangofab.util import local_out as local
+from djangofab.decorator import user_settings
+from djangofab.util import local_out as local, apply_settings
 from django.conf import settings
 #sys.path[len(sys.path):] = ['.']
 #os.environ['DJANGO_SETTINGS_MODULE'] = 'website.settings'
