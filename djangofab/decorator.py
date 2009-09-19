@@ -1,3 +1,10 @@
+import os
+import sys
+import ConfigParser
+import subprocess
+from fabric.api import *
+from fabric.context_managers import *
+
 from djangofab.util import _apply_settings
 
 def user_settings(file='fab.cfg', group='default'):
@@ -5,8 +12,8 @@ def user_settings(file='fab.cfg', group='default'):
     def wrap(f=None):
         def wrapped_f(*args):
             f(*args)
-            _apply_settings(file, group)
-            return wrapped_f
+            _apply_settings(file,group) 
+        return wrapped_f
     return wrap
 
 

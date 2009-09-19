@@ -4,7 +4,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(name='django-fab',
-version='1.0',
+version='1.0.2',
 description='Common methods to help create fabric deplopment scripts for django',
 long_description=read('README.rst'),
 author='Harley Bussell',
