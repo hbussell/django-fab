@@ -33,8 +33,6 @@ def checkout_local():
 def remote_checkout_exists():
     #with cd(env.path):
     out = run('ls -a | grep svn').strip()
-    print out
-    return True
     if out=='.svn':
         return True
     return False    
