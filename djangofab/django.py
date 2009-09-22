@@ -1,8 +1,7 @@
+
 from __future__ import with_statement
-from fabric.context_managers import cd
-from fabric.api import env, run, get, sudo
-from djangofab.util import local as local
 import os
+from djangofab.api import *
 
 def get_remote_db():
     "Download the latest database from the server and load it onto your local database"
@@ -37,7 +36,6 @@ def put_local_db():
         (settings.DATABASE_USER, settings.DATABASE_PASSWORD, settings.DATABASE_NAME))
 
 def get_db_settings():
-    from fabric.operations import _handle_failure
     try:
         from fabfile import settings
     except ImportError:

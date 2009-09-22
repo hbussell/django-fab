@@ -1,11 +1,5 @@
-from __future__ import with_statement
-from fabric.api import *
-from fabric.context_managers import *
-from django.conf import settings
+from djangofab.api import *
 from djangofab.vcs.svn import update_remote, update_local, commit, add
-from djangofab.decorator import user_settings
-from djangofab.util import local as local
-from djangofab.django import get_remote_db, put_local_db, change_ownership, touch_wsgi
 env.capture_default = False
 
 #use the default section of fab.cfg

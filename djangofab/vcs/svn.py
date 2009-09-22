@@ -1,7 +1,6 @@
+
 from __future__ import with_statement
-from fabric.api import run, env
-from fabric.context_managers import cd
-from djangofab.util import local as local
+from djangofab.api import *
 
 def update_remote():
     "Update remote checkout to the latest version"

@@ -2,16 +2,7 @@ import os
 import sys
 import ConfigParser
 import subprocess
-#from fabric.api import *
-#from fabric.context_managers import *
-
-from fabric.api import local as _local
-from fabric.api import env
-
-
-from fabric.state import env, connections, output
-#def local_out(cmd):
-#    return local(cmd,False)
+from djangofab.api import *
 
 def local(cmd):
     if hasattr(env,'capture_default'):
@@ -19,7 +10,10 @@ def local(cmd):
     else:
         _local(cmd)
 
-def _apply_settings(file='fab.cfg', group='default'):
+def apply_settings(file='fab.cfg', group='default'):
+    if not os.path.exists(file):
+        _handle_failure(message='Configuration file %s does not exist' % file)
+        return
     config = ConfigParser.ConfigParser()
     config.readfp(open(file))
     user_settings = {}
