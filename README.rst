@@ -16,15 +16,14 @@ Installation ::
 
 git example fabfile.py ::
 
-    from __future__ import with_statement
-    from fabric.api import *
-    from fabric.context_managers import *
+    from djangofab.api import *
     from django.conf import settings
     from djangofab.vcs.git import update_remote, update_local, push, commit, add
-    from djangofab.decorator import user_settings
-    from djangofab.util import local as local
-    from djangofab.django import get_remote_db, put_local_db, change_ownership, touch_wsgi
     env.capture_default = False
+
+    # apply the settings from fab.cfg default section
+    # sets DJANGO_SETTINGS which allows access to django.conf.settings values
+    apply_settings()
 
     #use the default section of fab.cfg
     @user_settings()
@@ -60,6 +59,10 @@ git example fabfile.py ::
         change_ownership()
         touch_wsgi()
 
+    def test():    
+        print "website using database %s " % (settings.DATABASE_NAME,)
+        
+   
 
 Requries fabric>=0.9
 http://git.fabfile.org/cgit.cgi/fabric/snapshot/fabric-0.9b1.tar.gz
