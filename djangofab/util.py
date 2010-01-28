@@ -1,8 +1,8 @@
 import os
-import sys
 import ConfigParser
-import subprocess
-from djangofab.api import *
+#from djangofab.api import *
+from fabric.api import *
+from fabric.operations import local as _local
 
 def local(cmd):
     if hasattr(env,'capture_default'):

@@ -61,7 +61,8 @@ def change_ownership():
 def touch_wsgi():
     "Touch the wsgi file to trigger wsgi to reload the processes."
     with cd(env.path):
-        run("touch bin/django.wsgi")
+        #run("touch bin/django.wsgi")
+        run("touch %s" % env.wsgi)
 
 def syncdb():
     "Sync database and run"
